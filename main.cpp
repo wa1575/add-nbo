@@ -27,17 +27,17 @@ int main(int argc, char *argv[])
 	fd2 = fopen(argv[2], "rb");
 	
 
-        uint8_t binary_buffer1[10000];
+        uint32_t binary_buffer1[32]={0,};
 
-        len1 = fread(binary_buffer1, 1, 9999, fd1); 
+        len1 = fread(binary_buffer1, 1, sizeof(uint32_t), fd1); 
         binary_buffer1[len1] = '\0';        
 
         uint32_t* p1 = reinterpret_cast<uint32_t*>(binary_buffer1);
 
 
-        uint8_t binary_buffer2[10000];
+        uint32_t binary_buffer2[32]={0,};
         
-        len2 = fread(binary_buffer2, 1, 9999, fd2);
+        len2 = fread(binary_buffer2, 1, sizeof(uint32_t), fd2);
         binary_buffer2[len2] = '\0';        
 
         uint32_t* p2 = reinterpret_cast<uint32_t*>(binary_buffer2);
